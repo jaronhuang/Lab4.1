@@ -1,5 +1,11 @@
 package Lab4_1;
 
+/**
+ * Lab 4.1
+ * @author Jaron Huang
+ * 12/14/17
+ */
+
 public class DeckTester 
 {
 	public static void main(String[] args)
