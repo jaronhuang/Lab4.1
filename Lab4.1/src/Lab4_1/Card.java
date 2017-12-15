@@ -1,3 +1,4 @@
+package Lab4_1;
 /**
  * Lab 4.1
  * @author Jaron Huang
@@ -18,15 +19,9 @@ public class Card
 	
 	public boolean equals(Card otherCard)
 	{
-		if (rank.equals(otherCard.getRank()))
+		if (pointValue == otherCard.getPointValue())
 		{
-			if (suit.equals(otherCard.getSuit()))
-			{
-				if (pointValue == otherCard.getPointValue())
-				{
-					return true;
-				}
-			}
+			return true;
 		}
 		return false;
 	}
