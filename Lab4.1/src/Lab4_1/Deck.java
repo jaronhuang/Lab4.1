@@ -1,5 +1,6 @@
 package Lab4_1;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Lab 4.1
@@ -8,8 +9,8 @@ import java.util.ArrayList;
  */
 public class Deck
 {
-	ArrayList<Card> unDealt;
-	ArrayList<Card> Dealt;
+	private ArrayList<Card> unDealt = new ArrayList<Card>();
+	private ArrayList<Card> Dealt = new ArrayList<Card>();
 	
 	public Deck(String[] rank, String[] suit, int[] pointValue) 
 	{
@@ -17,10 +18,8 @@ public class Deck
 		{
 			for (int j = 0; j < suit.length; j++)
 			{
-				for (int k = 0; k < pointValue.length; k++)
-				{
-					unDealt.add("[rank, suit, pointValue]");
-				}
+				Card card = new Card(rank[i], suit[j], pointValue[i]);
+				unDealt.add(card);
 			}
 		}
 	}
@@ -36,9 +35,32 @@ public class Deck
 	
 	public int size()
 	{
-		
+		return unDealt.size();
 	}
 	
+	public Card deal()
+	{
+		if(unDealt.size() > 0)
+		{
+			Card dealtCard = unDealt.get(0);
+			Dealt.add(dealtCard);
+			unDealt.remove(0);
+			return dealtCard;
+		}
+		
+		return null;
+	}
 	
-
+	public void shuffle()
+	{
+		int select = 0;
+		unDealt.addAll(Dealt);
+		Dealt.clear();
+		
+		for (int i = 51; i > 0; i--)
+		{
+			select = (int)(Math.random() * i);
+			Collections.swap(unDealt, i, select);
+		}
+	}
 }
